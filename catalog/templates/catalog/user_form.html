@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+</head>
+<body>
+ <h1>{{ form.instance.pk|yesno:"Update User,Add User" }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{{ form.instance.pk|yesno:"Update,Add" }}</button>
+    </form>
+
+    <a href="{% url 'user_list' %}">Back to User List</a>
+</body>
+</html>
